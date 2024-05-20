@@ -35,8 +35,8 @@ export default function Index() {
           />
         )
       })}
-      <Button mode="outlined" onPress={() => append({ value: '' })}>Add Child</Button>
-      <Button accessibilityLabel="Finish onboarding" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_4)}>Done</Button>
+      <Button style={{ marginTop: 20 }} mode="outlined" onPress={() => append({ value: '' })}>Add Child</Button>
+      <Button style={{ marginTop: 20 }} accessibilityLabel="Finish onboarding" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_4)}>Done</Button>
     </View>
   );
 }

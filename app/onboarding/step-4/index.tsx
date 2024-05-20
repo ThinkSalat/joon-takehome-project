@@ -45,7 +45,7 @@ export default function Index() {
           />
         )}
       />
-      <Button mode="contained" onPress={handleSubmit(onSubmit)}>Sign Up</Button>
+      <Button style={{ marginTop: 20 }} mode="contained" onPress={handleSubmit(onSubmit)}>Sign Up</Button>
       <View style={{ flexDirection: "row" }}>
         <Checkbox.Android accessible accessibilityLabel="Accept Terms and Conditions" status={checked ? "checked" : "unchecked"} onPress={() => setChecked(!checked)}/>
         <Text variant="bodySmall" >I've read and accepted the terms and conditions</Text>
