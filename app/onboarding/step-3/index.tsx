@@ -2,10 +2,10 @@ import { Button, TextInput, View } from "react-native";
 import { Controller, useFormContext, useFieldArray } from "react-hook-form";
 import { Link } from "expo-router";
 import { ONBOARDING_STEP_4 } from "@/constants/Routes";
-
+import { FormValues } from "../types";
 
 export default function Index() {
-  const { control } = useFormContext()
+  const { control } = useFormContext<FormValues>()
   const { fields, append, remove } = useFieldArray({
     control,
     name: "childrenNames"
@@ -19,7 +19,7 @@ export default function Index() {
             <Controller
               key={field.id}
               control={control}
-              name={`childrenNames.${index}`}
+              name={`childrenNames.${index}.value`}
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
                   placeholder="Child's Name"
@@ -33,7 +33,7 @@ export default function Index() {
           </View>
         )
       })}
-      <Button title="Add Child" onPress={() => append('')}/>
+      <Button title="Add Child" onPress={() => append({ value: '' })}/>
       <Link href={ONBOARDING_STEP_4}>Next</Link>
     </View>
   );

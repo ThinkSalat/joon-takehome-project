@@ -3,10 +3,10 @@ import { Text, View } from "react-native";
 import { Controller, useFormContext } from "react-hook-form";
 import { ONBOARDING_STEP_3 } from "../../../constants/Routes";
 import RadioButton from "../../../components/RadioButton";
-
+import { FormValues } from "../types";
 
 export default function Index() {
-  const { control, setValue, watch } = useFormContext()
+  const { control, setValue, watch } = useFormContext<FormValues>()
   const selectedGender = watch('gender');
 
   return (

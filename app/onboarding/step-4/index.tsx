@@ -1,14 +1,7 @@
 
 import { Button, TextInput, View } from "react-native";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
-
-interface FormValues {
-  name: string;
-  gender: string;
-  childrenNames: string[];
-  email: string;
-  password: string;
-}
+import { FormValues } from "../types";
 
 export default function Index() {
   const { control, handleSubmit } = useFormContext<FormValues>()
