@@ -33,7 +33,7 @@ export default function Index() {
           </View>
         )}
       />
-      <Button mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_3)}>Next</Button>
+      <Button accessibilityLabel="Go to next screen" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_3)}>Next</Button>
     </View>
   );
 }

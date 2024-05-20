@@ -2,7 +2,6 @@ import { View } from "react-native";
 import { router } from "expo-router";
 import { Button, Text, TextInput } from 'react-native-paper';
 import { Controller, useFormContext, useFieldArray } from "react-hook-form";
-
 import { ONBOARDING_STEP_4 } from "@/constants/Routes";
 import { FormValues } from "../types";
 
@@ -26,17 +25,18 @@ export default function Index() {
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 label="Child's Name"
+                accessibilityLabel="Child's name input"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                right={<TextInput.Icon icon="delete" onPress={() => remove(index)} />}
+                right={<TextInput.Icon accessible accessibilityLabel="delete" icon="delete" onPress={() => remove(index)} />}
                 />
             )}
           />
         )
       })}
       <Button mode="outlined" onPress={() => append({ value: '' })}>Add Child</Button>
-      <Button mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_4)}>Done</Button>
+      <Button accessibilityLabel="Finish onboarding" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_4)}>Done</Button>
     </View>
   );
 }

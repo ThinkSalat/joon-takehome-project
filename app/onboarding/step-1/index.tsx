@@ -17,6 +17,7 @@ export default function Index() {
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
             label="Name"
+            accessibilityLabel="Name text input"
             placeholder="Eg Kevin"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -24,7 +25,7 @@ export default function Index() {
           />
         )}
       />
-      <Button mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_2)}>Next</Button>
+      <Button accessibilityLabel="Go to next screen" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_2)}>Next</Button>
     </View>
   );
 }
