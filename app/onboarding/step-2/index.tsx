@@ -1,8 +1,8 @@
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { router } from "expo-router";
+import { Button, Text } from 'react-native-paper';
 import { Controller, useFormContext } from "react-hook-form";
 import { ONBOARDING_STEP_3 } from "../../../constants/Routes";
-import RadioButton from "../../../components/RadioButton";
 import { FormValues } from "../types";
 
 export default function Index() {
@@ -10,8 +10,8 @@ export default function Index() {
   const selectedGender = watch('gender');
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-     <Text>Choose an Option:</Text>
+    <View style={{ flex: 1, justifyContent: "center", padding: 50 }}>
+      <Text variant="headlineMedium">What is your gender?</Text>
       <Controller
         name="gender"
         control={control}
@@ -19,20 +19,21 @@ export default function Index() {
         render={({ field: { onChange } }) => (
           <View style={{ flexDirection: 'row' }}>
             {['Male', 'Female', 'Other'].map((gender) => (
-              <RadioButton
+              <Button
                 key={gender}
-                label={gender}
-                selected={selectedGender === gender}
+                mode={selectedGender === gender ? "contained" : "outlined"}
                 onPress={() => {
                   onChange(gender);
                   setValue('gender', gender);
                 }}
-              />
+                >
+                  {gender}
+              </Button>
             ))}
           </View>
         )}
       />
-      <Link href={ONBOARDING_STEP_3}>Next</Link>
+      <Button mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_3)}>Next</Button>
     </View>
   );
 }

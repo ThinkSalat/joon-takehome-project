@@ -1,6 +1,8 @@
-import { Button, TextInput, View } from "react-native";
+import { View } from "react-native";
+import { router } from "expo-router";
+import { Button, Text, TextInput } from 'react-native-paper';
 import { Controller, useFormContext, useFieldArray } from "react-hook-form";
-import { Link } from "expo-router";
+
 import { ONBOARDING_STEP_4 } from "@/constants/Routes";
 import { FormValues } from "../types";
 
@@ -12,29 +14,29 @@ export default function Index() {
   })
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{ flex: 1, justifyContent: "center", padding: 50 }}>
+      <Text variant="headlineMedium">Add your children</Text>
+
       {fields.map( (field, index) => {
         return (
-          <View style={{ flexDirection: 'row' }}>
-            <Controller
-              key={field.id}
-              control={control}
-              name={`childrenNames.${index}.value`}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  placeholder="Child's Name"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  />
-              )}
-            />
-            <Button title="Delete" onPress={() => remove(index)}/>
-          </View>
+          <Controller
+            key={field.id}
+            control={control}
+            name={`childrenNames.${index}.value`}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="Child's Name"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                right={<TextInput.Icon icon="delete" onPress={() => remove(index)} />}
+                />
+            )}
+          />
         )
       })}
-      <Button title="Add Child" onPress={() => append({ value: '' })}/>
-      <Link href={ONBOARDING_STEP_4}>Next</Link>
+      <Button mode="outlined" onPress={() => append({ value: '' })}>Add Child</Button>
+      <Button mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_4)}>Done</Button>
     </View>
   );
 }
