@@ -1,4 +1,6 @@
 export const ONBOARDING_STEP_1 = "/onboarding/step-1"
 export const ONBOARDING_STEP_2 = "/onboarding/step-2"
+export const ONBOARDING_STEP_2B = "/onboarding/step-2b"
 export const ONBOARDING_STEP_3 = "/onboarding/step-3"
 export const ONBOARDING_STEP_4 = "/onboarding/step-4"
+export const ONBOARDING_FAMILY_CODE = "/onboarding/family-code"
