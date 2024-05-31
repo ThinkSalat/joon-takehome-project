@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { router } from "expo-router";
 import { Button, Text } from 'react-native-paper';
 import { Controller, useFormContext } from "react-hook-form";
-import { ONBOARDING_STEP_3 } from "../../../constants/Routes";
+import { ONBOARDING_STEP_2B } from "../../../constants/Routes";
 import { FormValues } from "../types";
 
 export default function Index() {
@@ -33,7 +33,7 @@ export default function Index() {
           </View>
         )}
       />
-      <Button style={{ marginTop: 20 }} accessibilityLabel="Go to next screen" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_3)}>Next</Button>
+      <Button style={{ marginTop: 20 }} accessibilityLabel="Go to next screen" mode="contained" onPress={() => router.navigate(ONBOARDING_STEP_2B)}>Next</Button>
     </View>
   );
 }

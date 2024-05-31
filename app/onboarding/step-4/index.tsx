@@ -9,7 +9,11 @@ export default function Index() {
   const [hidePassword, setHidePassword] = useState(true)
   const [checked, setChecked] = useState(false);
 
-  const onSubmit: SubmitHandler<FormValues>= (data) => console.log(data)
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    // do they have code, or did they add children?
+    // check existence of code, if exists, they entered code. otherwise they chose other route.
+    console.log(data)
+  }
 
   return (
     <View style={{ flex: 1, justifyContent: "center", padding: 50 }}>
