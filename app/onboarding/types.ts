@@ -5,4 +5,8 @@ export interface FormValues {
   email: string;
   password: string;
   familyCode?: string;
+  questionnaireValues: {
+    question_id: number,
+    answer_id: number
+  }[]
 }
